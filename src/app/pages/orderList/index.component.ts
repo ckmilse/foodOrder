@@ -23,7 +23,7 @@ export class IndexComponent implements OnInit {
         public eventService: EventService) {
     }
     ngOnInit() {
-        // alert(1255993);
+        alert(123);
         this.choiceList.push({
             name: '新品推荐',
             id: '1233444',
