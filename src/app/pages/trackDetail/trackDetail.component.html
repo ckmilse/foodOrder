@@ -1,0 +1,146 @@
+<h2 class="page_title">
+    <a [routerLink]="['/realTimeTracking']" >{{traceDetail.productCn}} / 实时追踪 </a>/ 详情
+</h2>
+
+<div class="sub_container">
+    <h3 class="sub_title">URL</h3>
+    <div class="content_container">
+        <a>
+            <!-- URL：http://xtrace.pt.xiaomi.com/#/query/trace?traceName=900700000%2523900700001&serviceName=200100000&starttimepicker=
+           2017%252F04%252F27%252014%253A21&endtimepicker=2017%252F04%252F27%252015%253A21&r=1493277721101 -->
+            {{traceDetail.uri}}
+        </a>
+    </div>
+</div>
+<div class="sub_container">
+    <h3 class="sub_title">调用链拓扑图</h3>
+    <div class="content_container">
+        <!-- 这是拓扑图 -->
+        <div id="traceMapCon">
+            <svg id="traceMap">
+            </svg>
+        </div>
+    </div>
+</div>
+<div class="sub_container">
+    <h3 class="sub_title">筛选结果</h3>
+    <div class="content_container table_container" [ngStyle] = "{'min-height': ((traceMap.list.length + 1) * 40) + 'px'}" >
+        <div class="column_379 column">
+            <div class="column_title">
+                模块名
+            </div>
+            <!-- [ngClass]="{'background_gray':item.hasChild}" -->
+            <div class="column_value">
+                <div class="row_value" *ngFor="let item of traceMap.list;let i = index;"  [hidden]="item.ifHidden">
+                    <span [ngStyle] = "{ 'margin-left': ((item.depth) * 35) + 'px'}" class="span_value">
+                        <span class="glyphicon glyphicon-menu-right"
+                        [ngClass]="{'left_arrow':item.toogleChild}"
+                        aria-hidden="true"
+                        *ngIf="item.hasChild"
+                        (click)="changeShow(item, i)" ></span>
+                        <a [title]="item.moduleName" data-toggle="tooltip" data-placement="top" title="Tooltip on top">{{item.moduleName}}</a>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        <div class="column_96 column">
+            <div class="column_title">
+                rpcId
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.rpcId}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="column_96 column">
+            <div class="column_title">
+                duration(ms)
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.duration}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="column_96 column">
+            <div class="column_title">
+                类型
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.type}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="column_64 column">
+            <div class="column_title">
+                状态
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.statusCode}}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="column_96 column">
+            <div class="column_title">
+                服务/方法
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.method}}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="column_116 column">
+            <div class="column_title">
+                远程ip
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.remote_ip}}</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="column_64 column">
+            <div class="column_title">
+                机房
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.idc}}</span>
+                </div>
+
+            </div>
+        </div>
+        <!-- <div class="column_64 column">
+            <div class="column_title">
+                大小
+            </div>
+            <div class="column_value">
+                <div class="row_value text_align_center" *ngFor="let item of traceMap.list"  [hidden]="item.ifHidden">
+                    <span>{{item.size}}</span>
+                </div>
+
+            </div>
+        </div> -->
+        <div class="column_321 column">
+            <div class="column_title ">
+                时间轴
+            </div>
+            <div class="column_value" style="border-right: #E2E1E2 0px solid;">
+                <div class="row_value " *ngFor="let item of traceMap.list" [hidden]="item.ifHidden">
+                    <span class="rect_span" [ngStyle]="{'width': item.width, 'margin-left': item.left}" ></span>
+                    <span>{{item.duration}}ms</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

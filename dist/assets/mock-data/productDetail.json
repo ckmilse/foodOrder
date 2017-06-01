@@ -1,0 +1,36 @@
+{
+    "result": "ok",
+    "code": 0,
+    "data": {
+        "protocol": [
+            "HTTP"
+        ],
+        "method": [
+            "getOne()",
+            "123"
+        ],
+        "service": [
+            "QueryAll"
+        ],
+        "machine": [
+            "01"
+        ],
+        "module": [
+            "Query"
+        ],
+        "ip": [
+            "1.1.1.1",
+            "2.2.2.2"
+        ],
+        "idc": [
+            "los"
+        ],
+        "url": [
+            "/product"
+        ],
+        "status": [
+            "running"
+        ]
+    },
+    "description": "成功"
+}

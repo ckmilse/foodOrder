@@ -1,0 +1,231 @@
+<div class="panel panel-default" [hidden]="!ifDetail">
+    <div class="panel-heading">
+        执行记录
+    </div>
+    <div class="panel-body">
+        <div class="dao-table-main">
+            <table class="dao-table slat">
+                <thead>
+                    <tr>
+                        <th>执行记录</th>
+                        <th>Commit</th>
+                        <th>状态</th>
+                        <th>时间</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr class="ng-scope">
+                        <td>
+                            <div class="item-minjor link ng-binding" role="button" tabindex="0" (click)="showDetail()">develop-52c0a2c</div>
+                            <div class="item-minor">
+
+                                <span class="ng-binding">not_ck
+
+                                <span ng-if="pipeline.trigger_method === 'manual'" class="ng-scope">手动触发</span>
+
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+
+                                <span class="text ng-binding" style="margin-left:3px">develop</span>
+                            </div>
+                            <div class="item-minor">
+                                <span class="text ng-binding" dao-tooltip="" tooltip-append-to-body="true">52c0a2c</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+
+                            </div>
+                            <div class="item-minor item-danger">执行失败</div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+                                <!-- ngIf: pipeline.duration -->
+                                <span ng-if="pipeline.duration" class="ng-binding ng-scope">耗时34秒</span>
+                                <!-- end ngIf: pipeline.duration -->
+                                <!-- ngIf: !pipeline.duration -->
+                            </div>
+                            <div class="item-minor"><time title="1494313908000" time-ago="">大约20小时前</time>提交</div>
+                        </td>
+                    </tr>
+                    <tr class="ng-scope">
+                        <td>
+                            <div class="item-minjor link ng-binding" ng-click="ctrl.showPipelineDetail(pipeline)" role="button" tabindex="0">develop-52c0a2c</div>
+                            <div class="item-minor">
+
+                                <span class="ng-binding">not_ck
+
+                                <span ng-if="pipeline.trigger_method === 'manual'" class="ng-scope">手动触发</span>
+
+                                </span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+
+                                <span class="text ng-binding" style="margin-left:3px">develop</span>
+                            </div>
+                            <div class="item-minor">
+                                <span class="text ng-binding" dao-tooltip="" tooltip-append-to-body="true">52c0a2c</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+
+                            </div>
+                            <div class="item-minor item-danger">执行失败</div>
+                        </td>
+                        <td>
+                            <div class="item-minjor">
+                                <!-- ngIf: pipeline.duration -->
+                                <span ng-if="pipeline.duration" class="ng-binding ng-scope">耗时34秒</span>
+                                <!-- end ngIf: pipeline.duration -->
+                                <!-- ngIf: !pipeline.duration -->
+                            </div>
+                            <div class="item-minor"><time title="1494313908000" time-ago="">大约20小时前</time>提交</div>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="panel panel-default" [hidden]="ifDetail">
+    <div class="panel-heading">
+        develop-52c0a2c <button (click)="backList();" class="right_button">返回执行记录</button>
+    </div>
+    <div class="panel-body">
+        <div class="dao-table-main">
+            <div class="info-header">
+                <span>
+                    <!-- ngIf: ctrl.pipelineDetail.trigger_method === 'manual' -->
+                    <!-- <svg class="icon" ng-if="ctrl.pipelineDetail.trigger_method === 'manual'"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_manual"></use>
+                    </svg> -->
+                    <!-- end ngIf: ctrl.pipelineDetail.trigger_method === 'manual' --> <!-- ngIf: ctrl.pipelineDetail.trigger_method !== 'manual' -->
+                     <span class="text ng-binding">not_ck</span>
+                 </span>
+                <span>
+                    <!-- <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_git-branch" ng-href="#icon_git-branch"></use>
+                    </svg> -->
+                     <span class="text ng-binding">develop</span>
+                 </span>
+                <span>
+                    <!-- <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_git-commit"></use>
+                    </svg>  -->
+                    <span class="text ng-binding">52c0a2c</span>
+                </span>
+                 <span>
+                     <span class="text">耗时:</span>
+                <!-- ngIf: ctrl.pipelineDetail.duration --><span class="text ng-binding ng-scope" ng-if="ctrl.pipelineDetail.duration">34秒</span>
+                <!-- end ngIf: ctrl.pipelineDetail.duration -->
+                <!-- ngIf: !ctrl.pipelineDetail.duration -->
+                </span> <span><span class="text">触发时间:</span> <span class="text"><time title="1494313908000" time-ago="">1天前</time></span></span>
+            </div>
+
+            <div class="stage-container">
+                <div class="start-item">
+                    <svg class="icon">
+                        <use  xlink:href="#icon_github" xmlns:xlink="http://www.w3.org/1999/xlink" ></use>
+                    </svg>
+                </div>
+                <!-- ngRepeat: stage in ctrl.pipelineDetail.stages -->
+                <div class="arrow-item ng-scope" >
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_arrow-right">
+                        </use>
+                    </svg>
+                </div>
+                <div class="stage-item ng-scope" ng-repeat-end="">
+                    <h4 class="stage-title ng-binding">测试阶段</h4>
+                    <!-- ngRepeat: job in stage.jobs -->
+                    <div class="stage-task ng-scope" ng-repeat="job in stage.jobs">
+                        <div class="stage-task-content">
+                            <div>
+                                <h5 class="ellipsis job-name ng-binding" ng-click="ctrl.viewLog(ctrl.pipelineDetail, job)" dao-tooltip="" ellipsis-tooltip="" role="button" tabindex="0">默认测试任务</h5>
+                                <svg class="icon pull-right"  dao-tooltip="执行成功" tooltip-append-to-body="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_pipeline_success"></use>
+                                </svg>
+                            </div>
+                            <div
+                                class="job-type line-height-12 ng-binding">测试任务</div>
+
+                            <span class="stage-label ng-binding ng-scope" ng-if="job.label">develop</span>
+                        </div>
+                        <div class="stage-task-footer">
+                            <svg class="icon" (click)="showLogDetail()" dao-tooltip="查看日志" tooltip-append-to-body="true" role="button" tabindex="0">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_eye">
+                                </use>
+                            </svg>
+                            <svg class="icon" ng-click="ctrl.downloadJobLog(job)" dao-tooltip="下载日志" tooltip-append-to-body="true"
+                                role="button" tabindex="0">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_download"></use>
+                            </svg>
+                            <!-- <a>
+                                查看
+                            </a>
+                            <a style="margin-left:20px;">
+                                下载
+                            </a> -->
+
+                        </div>
+                    </div>
+                    <!-- end ngRepeat: job in stage.jobs -->
+                </div>
+                <div class="arrow-item ng-scope" >
+                    <svg>
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_arrow-right">
+                        </use>
+                    </svg>
+                </div>
+                <div class="stage-item ng-scope" ng-repeat-end="">
+                    <h4 class="stage-title ng-binding">测试阶段</h4>
+                    <!-- ngRepeat: job in stage.jobs -->
+                    <div class="stage-task ng-scope" ng-repeat="job in stage.jobs">
+                        <div class="stage-task-content">
+                            <div>
+                                <h5 class="ellipsis job-name ng-binding" ng-click="ctrl.viewLog(ctrl.pipelineDetail, job)" dao-tooltip="" ellipsis-tooltip="" role="button" tabindex="0">默认测试任务</h5>
+                                <svg class="icon pull-right" ng-class="{'rotate': job.status === 'Started'}" dao-tooltip="执行成功" tooltip-append-to-body="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_pipeline_success"></use>
+                                </svg>
+                            </div>
+                            <div
+                                class="job-type line-height-12 ng-binding">测试任务</div>
+
+                            <span class="stage-label ng-binding ng-scope" ng-if="job.label">develop</span>
+                        </div>
+                        <div class="stage-task-footer">
+                            <a (click)="showLogDetail()">
+                                查看
+                            </a>
+                            <a style="margin-left:20px;">
+                                下载
+                            </a>
+                            <!-- <svg class="icon" ng-click="ctrl.viewLog(ctrl.pipelineDetail, job)" dao-tooltip="查看日志" tooltip-append-to-body="true" role="button" tabindex="0">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_eye">
+                                </use>
+                            </svg> -->
+                            <!-- <svg class="icon" ng-click="ctrl.downloadJobLog(job)" ng-if="job.status === 'Failure' || job.status === 'Cancelled' || job.status === 'Error' || job.status === 'Timeout' || job.status === 'Success'" dao-tooltip="下载日志" tooltip-append-to-body="true"
+                                role="button" tabindex="0">
+                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_download"></use>
+                            </svg> -->
+
+                        </div>
+                    </div>
+                    <!-- end ngRepeat: job in stage.jobs -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

@@ -1,0 +1,71 @@
+<div class="log-dialog ng-scope">
+
+        <div class="dao-dialog-header">
+
+                <span class="ng-binding ng-scope">流水线 develop-52c0a2c 的日志</span>
+
+            <div ng-click="$dismiss('close')" class="dao-close" role="button" tabindex="0">
+                <svg preserveAspectRatio="xMidYMid" width="34" height="34" viewBox="0 0 34 34">
+  	  <path d="M17.000,0.001 C7.612,0.001 0.001,7.612 0.001,17.000 C0.001,26.388 7.612,33.999 17.000,33.999 C26.388,33.999 33.999,26.388 33.999,17.000 C33.999,7.612 26.388,0.001 17.000,0.001 ZM24.166,21.666 C24.166,21.666 21.666,24.166 21.666,24.166 C21.666,24.166 17.000,19.500 17.000,19.500 C17.000,19.500 12.334,24.166 12.334,24.166 C12.334,24.166 9.834,21.666 9.834,21.666 C9.834,21.666 14.500,17.000 14.500,17.000 C14.500,17.000 9.834,12.335 9.834,12.335 C9.834,12.335 12.334,9.834 12.334,9.834 C12.334,9.834 17.000,14.500 17.000,14.500 C17.000,14.500 21.666,9.834 21.666,9.834 C21.666,9.834 24.166,12.335 24.166,12.335 C24.166,12.335 19.500,17.000 19.500,17.000 C19.500,17.000 24.166,21.666 24.166,21.666 Z" id="path-1" fill-rule="evenodd"></path>
+  	</svg>
+            </div>
+        </div>
+
+    <div class="dao-dialog-content log-content">
+        <div class="log-content-nav">
+            <ul class="pipeline-log-steps">
+                <!-- ngRepeat: stage in ctrl.pipeline.stages -->
+                <li class="log-step-item ng-binding ng-scope" ng-repeat="stage in ctrl.pipeline.stages">测试阶段
+                    <ul>
+                        <!-- ngRepeat: job in stage.jobs -->
+                        <li class="log-detail-step ng-scope selected-step" ng-class="{'selected-step': ctrl.job.id===job.id}" ng-repeat="job in stage.jobs" ng-click="ctrl.switchJob(job)" role="button" tabindex="0"><svg class="icon success" ng-class="{'rotate': job.status === 'Started'}"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_pipeline_success"></use></svg>
+                            <span class="job-name ellipsis ng-binding"
+                                dao-tooltip="" ellipsis-tooltip="">默认测试任务</span>
+                        </li>
+                        <!-- end ngRepeat: job in stage.jobs -->
+                    </ul>
+                </li>
+                <!-- end ngRepeat: stage in ctrl.pipeline.stages -->
+                <li class="log-step-item ng-binding ng-scope" ng-repeat="stage in ctrl.pipeline.stages">构建阶段
+                    <ul>
+                        <!-- ngRepeat: job in stage.jobs -->
+                        <li class="log-detail-step ng-scope" ng-class="{'selected-step': ctrl.job.id===job.id}" ng-repeat="job in stage.jobs" ng-click="ctrl.switchJob(job)" role="button" tabindex="0"><svg class="icon failure" ng-class="{'rotate': job.status === 'Started'}"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/build-flows/17b95b99-34b7-4153-9329-634524f9926d#icon_fail"></use></svg>
+                            <span class="job-name ellipsis ng-binding"
+                                dao-tooltip="" ellipsis-tooltip="">默认构建任务</span>
+                        </li>
+                        <!-- end ngRepeat: job in stage.jobs -->
+                    </ul>
+                </li>
+                <!-- end ngRepeat: stage in ctrl.pipeline.stages -->
+            </ul>
+        </div>
+        <div class="log-content-steps">
+            <!-- <div class="modal-header" ng-if="ctrl.job.job_type==='test'">
+        <ul class="nav nav-tabs">
+          <li ng-class="{'active':ctrl.logTab===1}"><a href ng-click="ctrl.logTab=1"><i class="fa fa-terminal"></i>日志</a></li>
+          <li ng-class="{'active':ctrl.logTab===2}"><a href ng-click="ctrl.logTab=2"><i class="fa fa-wrench"></i>测试</a></li>
+        </ul>
+      </div> -->
+            <div class="modal-body">
+                <div class="tab-content">
+                    <div class="tab-pane active" ng-class="{'active':ctrl.logTab===1}">
+                        <div>
+                            <textarea>
+                                这是测试日志
+                            </textarea>
+                        </div>
+                    </div>
+                    </div>
+            </div><button class="dao-btn blue" ng-class="{'disabled': ctrl.job.status==='Enqueue'||ctrl.job.status==='Pending'||ctrl.job.status==='Skipped'||ctrl.job.status==='Started'}" ng-click="ctrl.downloadJobLog()" tabindex="0">下载当前日志</button>
+
+            <div class="job-message"><span class="item-minor item-success">执行成功</span>
+                <!-- ngIf: ctrl.job.status!=='Enqueue'&&ctrl.job.status!=='Pending'&&ctrl.job.status!=='Started'&&ctrl.job.status!=='Skipped' -->
+                <span class="waste-time ng-scope" ng-if="ctrl.job.status!=='Enqueue'&amp;&amp;ctrl.job.status!=='Pending'&amp;&amp;ctrl.job.status!=='Started'&amp;&amp;ctrl.job.status!=='Skipped'">耗时 <time pubdate="20秒" class="ng-binding">20秒</time></span>
+                <!-- end ngIf: ctrl.job.status!=='Enqueue'&&ctrl.job.status!=='Pending'&&ctrl.job.status!=='Started'&&ctrl.job.status!=='Skipped' -->
+            </div>
+        </div>
+    </div>
+    <div class="dao-dialog-footer">
+        <button class="dao-btn blue" (click)="closeModal()" tabindex="0">关闭</button>
+    </div>
+</div>

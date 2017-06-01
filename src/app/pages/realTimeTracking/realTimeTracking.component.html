@@ -1,0 +1,539 @@
+<!-- <div>
+    商城/实时追踪
+</div> -->
+<h2 class="page_title" *ngIf="product.cn_name">
+    {{product.cn_name}} / 实时追踪
+</h2>
+<div class="sub_container">
+    <h3 class="sub_title">请选择筛选条件</h3>
+
+    <div class="content_container" style="margin-top: 0px;">
+
+        <div class="line_item">
+            <div class="choice_item half">
+                <label class="key_label">
+                    时间选择：
+                </label>
+                <div class="value_div">
+                    <!-- <select class="time_select">
+                        <option value="">2017-04-28  14:28:00</option>
+                    </select> -->
+                    <input type="text" class="form-control timeInput" placeholder="Search" id="startTime" [(ngModel)]="choice.startTimeStr">
+
+                    <span class="margin_left_right">到</span>
+                    <input type="text" class="form-control timeInput" placeholder="Search" id="endTime" [(ngModel)]="choice.endTimeStr">
+                    <!-- <select class="time_select">
+                        <option value="">2017-04-28  14:28:00</option>
+                    </select> -->
+                </div>
+            </div>
+            <div class="choice_item half">
+                <label class="key_label">
+                    入口URI选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.term_uri">
+                        <!-- <option value="">mishop/list/activity</option> -->
+                        <option *ngFor="let url of productDetail.url" [value] = "url">{{url}}</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="line_item">
+            <div class="choice_item fourItem ">
+                <label class="key_label">
+                    链类型：
+                </label>
+                <div class="value_div">
+                    <span class="radio_con">
+                        <input type="radio" value="true" name="type_lian" value="break" [(ngModel)]="choice.term_chainType">
+                        断链
+                    </span>
+                    <span class="radio_con">
+                        <input type="radio" value="false" name="type_lian" value="ring" [(ngModel)]="choice.term_chainType">
+                        环链
+                    </span>
+
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    包含：
+                </label>
+                <div class="value_div">
+                    <div class="value_div">
+                        <span class="radio_con">
+                            <input type="radio" value="true" name="type_inclue" value="redis"  [(ngModel)]="choice.match_moduleType">
+                            redis
+                        </span>
+                        <span class="radio_con">
+                            <input type="radio" value="false" name="type_inclue" value="mysql" [(ngModel)]="choice.match_moduleType">
+                            mysql
+                        </span>
+                        <span class="radio_con">
+                            <input type="radio" value="false" name="type_inclue" value="mq" [(ngModel)]="choice.match_moduleType">
+                            mq
+                        </span>
+                        <span class="radio_con">
+                            <input type="radio" value="false" name="type_inclue" value="rpc" [(ngModel)]="choice.term_include">
+                            rpc
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="line_item">
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    深度：
+                </label>
+                <div class="value_div">
+                    <input  [(ngModel)]="choice.range_depth_start">
+                    <span class="margin_left_right">到</span>
+                    <input  [(ngModel)]="choice.range_depth_end">
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    交互次数:
+                </label>
+                <div class="value_div">
+                    <input  [(ngModel)]="choice.range_interactionTimes_start" >
+                    <span class="margin_left_right">到</span>
+                    <input  [(ngModel)]="choice.range_interactionTimes_end">
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    耗时（ms）:
+                </label>
+                <div class="value_div">
+                    <input  [(ngModel)]="choice.range_costTime_start" >
+                    <span class="margin_left_right">到</span>
+                    <input  [(ngModel)]="choice.range_costTime_end" >
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="content_container relative" [ngClass]="{'notShowChoice': ifShowChoices}" >
+
+        <div class="line_item" [hidden]="ifShowChoices">
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    模块选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_module">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let module of productDetail.module" [value] = "module">{{module}}</option>
+                        <!-- <option value="">order_center</option> -->
+                    </select>
+
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    方法选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_method">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let method of productDetail.method" [value] = "method">{{method}}</option>
+                        <!-- <option value="">order_center</option> -->
+                    </select>
+
+
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    服务选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_service">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let service of productDetail.service" [value] = "service">{{service}}</option>
+                        <!-- <option value="">order_center</option> -->
+                    </select>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="line_item" [hidden]="ifShowChoices">
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    协议选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_protocol">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let protocol of productDetail.protocol" [value] = "protocol">{{protocol}}</option>
+                        <!-- <option value="">order_center</option> -->
+                    </select>
+
+                </div>
+            </div>
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    状态码选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_status">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let status of productDetail.status" [value] = "status">{{status}}</option>
+                        <!-- <option value="">order_center</option> -->
+                    </select>
+
+                </div>
+            </div>
+            <!-- <div class="choice_item threeItem">
+                <label class="key_label">
+                    机房选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_idc">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let idc of productDetail.idc" [value] = "idc">{{idc}}</option>
+
+                    </select>
+
+                </div>
+            </div> -->
+            <div class="choice_item threeItem">
+                <label class="key_label">
+                    IP选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select"  [(ngModel)]="choice.match_ip">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let ip of productDetail.ip" [value] = "ip">{{ip}}</option>
+
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="line_item" [hidden]="ifShowChoices">
+            <!-- <div class="choice_item threeItem">
+                <label class="key_label">
+                    机器选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_machine">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let machine of productDetail.machine" [value] = "machine">{{machine}}</option>
+
+                    </select>
+
+                </div>
+            </div> -->
+            <!-- <div class="choice_item threeItem">
+                <label class="key_label">
+                    容器选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select" [(ngModel)]="choice.match_container">
+                        <option value="">order_center</option>
+                    </select>
+
+                </div>
+            </div> -->
+
+            <!-- <div class="choice_item threeItem">
+                <label class="key_label">
+                    IP选择：
+                </label>
+                <div class="value_div">
+                    <select class="common_select"  [(ngModel)]="choice.match_ip">
+                        <option [value] = "''"></option>
+                        <option *ngFor="let ip of productDetail.ip" [value] = "ip">{{ip}}</option>
+
+                    </select>
+
+                </div>
+            </div> -->
+        </div>
+        <!-- <div class="line_item" [hidden]="ifShowChoices">
+            <div class="choice_item ">
+                <label class="key_label">
+                    风险识别：
+                </label>
+                <div class="value_div">
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        a.循环交互
+                    </span>
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        b.冗余连接
+                    </span>
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        c.重复交互
+                    </span>
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        d.重复连接
+                    </span>
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        e.SQL性能
+                    </span>
+                    <span class="checkbox_con">
+                        <input type="checkbox" value="false" name="type_warn">
+                        f.长逻辑耗时
+                    </span>
+                </div>
+            </div>
+
+        </div> -->
+        <div class="switch_con" (click)="changeShowChoices()">
+            <span >
+                {{ifShowChoices?'展开选项':'折叠选项'}}
+            </span>
+
+        </div>
+    </div>
+</div>
+<div class="one_button">
+    <button (click)="queryTrace()">
+        筛选
+    </button>
+</div>
+<div class="sub_container">
+    <h3 class="sub_title">调用详情</h3>
+    <div class="content_container table_container">
+        <div class="table_head">
+
+            <span class="head_td one_four">
+                traceId
+            </span>
+            <!-- <span class="head_td one_ten">
+                traceId
+            </span> -->
+            <span class="head_td one_ten">
+                开始时间
+            </span>
+            <span class="head_td one_four">
+                request_url
+            </span>
+            <span class="head_td one_fifteng">
+                状态码
+            </span>
+            <span class="head_td one_fifteng">
+                耗时
+            </span>
+            <span class="head_td one_fifteng">
+                深度
+            </span>
+            <span class="head_td one_fifteng">
+                交互次数
+            </span>
+            <span class="head_td one_fifteng">
+                类型
+            </span>
+            <!-- <span class="head_td one_eight">
+                风险项
+            </span> -->
+            <span class="head_td one_twelve">
+                操作
+            </span>
+        </div>
+
+        <div class="table_body">
+            <div class="table_tr" *ngFor = "let trace of traceList">
+
+                <span class="body_td one_four">
+                    {{trace.traceId}}
+                </span>
+                <!-- <span class="body_td one_ten">
+                    {{trace.traceId}}
+                </span> -->
+                <span class="body_td one_ten">
+                    <time [times]="trace.startTime"></time>
+
+                </span>
+                <span class="body_td one_four">
+                    {{trace.uri}}
+                    <!-- Xiaomi.com/shop/45678 -->
+                </span>
+                <span class="body_td one_fifteng">
+
+                {{trace.statusSet}}
+                </span>
+                <span class="body_td one_fifteng">
+                    {{trace.duration}}
+                </span>
+                <span class="body_td one_fifteng">
+
+                    {{trace.depth}}
+                </span>
+                <span class="body_td one_fifteng">
+                    {{trace.count}}
+                </span>
+                <span class="body_td one_fifteng">
+                    {{trace.chainType}}
+                </span>
+                <!-- <span class="body_td one_eight">
+                    wf
+                </span> -->
+                <span class="body_td one_twelve">
+                    <!-- [routerLink]="['/trackDetail']" [queryParams]="{traceId: trace.traceId}" -->
+                    <a class="link"  href="/index.html#/trackDetail?traceId={{trace.traceId}}" target="_blank" >查看详情</a>
+                </span>
+            </div>
+            <!-- <div class="table_tr">
+                <span class="body_td one_ten">
+                    saf3874298
+                </span>
+                <span class="body_td one_ten">
+                    04281283
+                </span>
+                <span class="body_td one_four">
+                    Xiaomi.com/shop/45678
+                </span>
+                <span class="body_td one_fifteng">
+                200
+                </span>
+                <span class="body_td one_fifteng">
+                    250
+                </span>
+                <span class="body_td one_fifteng">
+                    7
+                </span>
+                <span class="body_td one_fifteng">
+                    89
+                </span>
+                <span class="body_td one_fifteng">
+                    wf
+                </span>
+                <span class="body_td one_eight">
+                    wf
+                </span>
+                <span class="body_td one_twelve">
+                    <a class="link" [routerLink]="['/trackDetail']" [queryParams]="{debug: true}">查看详情</a>
+                </span>
+            </div>
+            <div class="table_tr">
+                <span class="body_td one_ten">
+                    saf3874298
+                </span>
+                <span class="body_td one_ten">
+                    04281283
+                </span>
+                <span class="body_td one_four">
+                    Xiaomi.com/shop/45678
+                </span>
+                <span class="body_td one_fifteng">
+                200
+                </span>
+                <span class="body_td one_fifteng">
+                    250
+                </span>
+                <span class="body_td one_fifteng">
+                    7
+                </span>
+                <span class="body_td one_fifteng">
+                    89
+                </span>
+                <span class="body_td one_fifteng">
+                    wf
+                </span>
+                <span class="body_td one_eight">
+                    wf
+                </span>
+                <span class="body_td one_twelve">
+                    <a class="link" [routerLink]="['/trackDetail']" [queryParams]="{debug: true}">查看详情</a>
+                </span>
+            </div>
+            <div class="table_tr">
+                <span class="body_td one_ten">
+                    saf3874298
+                </span>
+                <span class="body_td one_ten">
+                    04281283
+                </span>
+                <span class="body_td one_four">
+                    Xiaomi.com/shop/45678
+                </span>
+                <span class="body_td one_fifteng">
+                200
+                </span>
+                <span class="body_td one_fifteng">
+                    250
+                </span>
+                <span class="body_td one_fifteng">
+                    7
+                </span>
+                <span class="body_td one_fifteng">
+                    89
+                </span>
+                <span class="body_td one_fifteng">
+                    wf
+                </span>
+                <span class="body_td one_eight">
+                    wf
+                </span>
+                <span class="body_td one_twelve">
+                    <a class="link" [routerLink]="['/trackDetail']" [queryParams]="{debug: true}" >查看详情</a>
+                </span>
+            </div>
+            <div class="table_tr">
+                <span class="body_td one_ten">
+                    saf3874298
+                </span>
+                <span class="body_td one_ten">
+                    04281283
+                </span>
+                <span class="body_td one_four">
+                    Xiaomi.com/shop/45678
+                </span>
+                <span class="body_td one_fifteng">
+                200
+                </span>
+                <span class="body_td one_fifteng">
+                    250
+                </span>
+                <span class="body_td one_fifteng">
+                    7
+                </span>
+                <span class="body_td one_fifteng">
+                    89
+                </span>
+                <span class="body_td one_fifteng">
+                    wf
+                </span>
+                <span class="body_td one_eight">
+                    wf
+                </span>
+                <span class="body_td one_twelve">
+                    <a class="link" [routerLink]="['/trackDetail']" [queryParams]="{debug: true}">查看详情</a>
+                </span>
+            </div> -->
+
+        </div>
+        <div class="page_no">
+            <button [ngClass]="{'active': (choice.page > 1)}" [disabled]="!(choice.page > 1)" (click)="choice.page= choice.page - 1 ; queryTrace()">
+                上一页
+            </button>
+            <span>
+                {{choice.page}}/{{choice.total}}
+            </span>
+            <button  [ngClass]="{'active': (choice.page < choice.total)}"  [disabled]="!(choice.page < choice.total)" (click)="choice.page= choice.page + 1 ;queryTrace()">
+                下一页
+            </button>
+        </div>
+
+    </div>
+</div>
+<!-- <div>
+    <h3>调用详情</h3>
+
+    <div>
+        trace_id
+    </div>
+</div> -->

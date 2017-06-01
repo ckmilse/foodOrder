@@ -1,0 +1,30 @@
+
+
+1. @Directive --指令
+在 Angular 中有三种类型的指令：
+
+Components—directives with a template. 组件 — 拥有模板的指令
+Structural directives—change the DOM layout by adding and removing DOM elements. 结构型指令 — 通过添加和移除 DOM 元素改变 DOM 布局的指令
+Attribute directives—change the appearance or behavior of an element. 属性型指令 — 改变元素显示和行为的指令。
+
+URL是相对于应用程序根目录的
+
+:host伪类选择器，用来选择组件宿主元素中的元素
+
+  @Component--组件
+
+
+  @NgModule  ---产生模块，
+    整个应用由模块组成，有个根木块，名称固定AppModule
+      --declarations
+      imports:      [ BrowserModule ],
+      declarations: [ AppComponent ],---在一个模块中使用特定【指令】，【组件】前，在此引入
+      bootstrap:    [ AppComponent ]
+
+      providers: [
+        UserService,
+          { provide: APP_CONFIG, useValue: HERO_DI_CONFIG }
+      ],
+
+      配置注入器
+      platformBrowserDynamic().bootstrapModule(AppModule);

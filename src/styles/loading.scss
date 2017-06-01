@@ -1,0 +1,287 @@
+@import compass
+
+html, body
+  height: 100%
+  width: 100%
+
+h2
+  background: #FFA134
+  margin: 0
+  padding: 20px
+  width: 100%
+  display: block
+  text-align: center
+
+.loading-container
+  display: table
+  width: 100%
+  min-height: 45%
+  &:nth-of-type(0n+1)
+    background: #FF3C31
+  &:nth-of-type(0n+2)
+    background: #A2395D
+  &:nth-of-type(0n+3)
+    background: #25A893
+  &:nth-of-type(0n+4)
+    background: #31B85F
+  &:nth-of-type(0n+5)
+    background: #1C1F1D
+  &:nth-of-type(0n+6)
+    background: #A2A178
+  &:nth-of-type(0n+7)
+    background: #ddb89a
+
+.loader
+  margin: 0 auto
+  text-align: center
+  width: 100%
+  min-height: 100%
+  display: table-cell
+  vertical-align: middle
+  opacity: 0.4
+  *
+    animation-play-state: paused
+  &:hover
+    opacity: 1
+    *
+      animation-play-state: running
+
+/** Settings **/
+$bubble-size: 10px
+$spinnin-bubble-translate: 200%
+$spinning-bubble-transform-origin: ($spinnin-bubble-translate - 50%) * -1
+$spoke-translate: 100%
+$spoke-transform-origin: ($spoke-translate) * -1
+
+.loading-bubbles
+  margin: auto
+  .bubble-container
+    display: inline-block
+    width: $bubble-size
+    height: $bubble-size
+    margin: 0 5px
+    .bubble
+      border-radius: 50%
+      background-color: #FFF
+      width: 100%
+      height: 100%
+      transform-origin: 50% 50%
+      animation: bubble 1.2s -0.6s infinite  ease-out
+    &:nth-of-type(2n)
+      .bubble
+        animation-delay: -0.3s
+    &:nth-of-type(3n)
+      .bubble
+        animation-delay: 0s
+
+.loading-spinning-bubbles
+  position: relative
+  margin: auto
+  .bubble-container
+    position: absolute
+    top: calc(50% - #{$bubble-size}/2)
+    left: calc(50% - #{$bubble-size}/2)
+    transform-origin: $spinning-bubble-transform-origin 50%
+    .bubble
+      background: #FFF
+      width: $bubble-size
+      height: $bubble-size
+      border-radius: 50%
+      animation: bubble 1s infinite
+      animation-delay: inherit
+    &:nth-of-type(0n+1)
+      transform: translateX($spinnin-bubble-translate) rotate(-90deg)
+      animation-delay: -1.5s
+    &:nth-of-type(0n+2)
+      transform: translateX($spinnin-bubble-translate) rotate(-45deg)
+      animation-delay: -1.375s
+    &:nth-of-type(0n+3)
+      transform: translateX($spinnin-bubble-translate)
+      animation-delay: -1.25s
+    &:nth-of-type(0n+4)
+      transform: translateX($spinnin-bubble-translate) rotate(45deg)
+      animation-delay: -1.125s
+    &:nth-of-type(0n+5)
+      transform: translateX($spinnin-bubble-translate) rotate(90deg)
+      animation-delay: -1s
+    &:nth-of-type(0n+6)
+      transform: translateX($spinnin-bubble-translate) rotate(135deg)
+      animation-delay: -0.875s
+    &:nth-of-type(0n+7)
+      transform: translateX($spinnin-bubble-translate) rotate(180deg)
+      animation-delay: -0.750s
+    &:nth-of-type(0n+8)
+      transform: translateX($spinnin-bubble-translate) rotate(225deg)
+      animation-delay: -0.625s
+
+.loading-spokes
+  position: relative
+  margin: auto
+  height: 45px
+  .spoke-container
+    position: absolute
+    top: 100%
+    left: calc(50% - #{$bubble-size}*1.5)
+    transform-origin: 50% $spoke-transform-origin
+    .spoke
+      background: #FFF
+      width: $bubble-size
+      height: $bubble-size * 2
+      animation: spoke 1s infinite
+      animation-delay: inherit
+    &:nth-of-type(0n+1)
+      transform: translateX($spoke-translate) rotate(-90deg)
+      animation-delay: -0.875s
+    &:nth-of-type(0n+2)
+      transform: translateX($spoke-translate) rotate(-45deg)
+      animation-delay: -0.750s
+    &:nth-of-type(0n+3)
+      transform: translateX($spoke-translate)
+      animation-delay: -0.625s
+    &:nth-of-type(0n+4)
+      transform: translateX($spoke-translate) rotate(45deg)
+      animation-delay: -0.5s
+    &:nth-of-type(0n+5)
+      transform: translateX($spoke-translate) rotate(90deg)
+      animation-delay: -0.375s
+    &:nth-of-type(0n+6)
+      transform: translateX($spoke-translate) rotate(135deg)
+      animation-delay: -0.25s
+    &:nth-of-type(0n+7)
+      transform: translateX($spoke-translate) rotate(180deg)
+      animation-delay: -0.125s
+    &:nth-of-type(0n+8)
+      transform: translateX($spoke-translate) rotate(225deg)
+      animation-delay: 0
+
+.loading-bars
+  text-align: center
+  .bar
+    height: $bubble-size * 2
+    width: $bubble-size
+    background: #FFF
+    display: inline-block
+    animation: pulse 1.2s infinite ease-out
+    &:nth-of-type(0n+1)
+      animation-delay: 0s
+    &:nth-of-type(0n+2)
+      animation-delay: 0.2s
+    &:nth-of-type(0n+3)
+      animation-delay: 0.4s
+    &:nth-of-type(0n+4)
+      animation-delay: 0.6s
+    &:nth-of-type(0n+5)
+      animation-delay: 0.8s
+
+.loading-slide
+  position: relative
+  width: 25%
+  margin: 0 auto
+  .slide
+    position: absolute
+    width: 25%
+    height: 5px
+    background: #FF2824
+    animation: slide 2s infinite
+    &:nth-of-type(0n+1)
+      opacity: 0.2
+      transform: scale(1.8, 1)
+      animation-delay: 0.2s
+    &:nth-of-type(0n+2)
+      opacity: 0.4
+      transform: scale(1.4, 1)
+      animation-delay: 0.1s
+    &:nth-of-type(0n+3)
+      opacity: 0.8
+
+.loading-circle
+  margin: 0 auto
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  border: 4px solid #BEB69D
+  position: relative
+  animation: spin 1s infinite linear
+  &:before
+    content: ''
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    display: block
+    position: absolute
+    left: -4px
+    top: -4px
+    border-right: 4px solid #BEB69D
+    border-top: 4px solid #BEB69D
+    border-left: 4px solid #FFF
+    border-bottom: 4px solid #BEB69D
+
+.loading-quarter-circle
+  margin: 0 auto
+  width: 40px
+  height: 40px
+  border-radius: 50%
+  border: 4px solid transparent
+  position: relative
+  animation: spin 1.2s infinite linear
+  &:before
+    content: ''
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    display: block
+    position: absolute
+    left: -4px
+    top: -4px
+    border-right: 4px solid transparent
+    border-top: 4px solid transparent
+    border-left: 4px solid #FFF
+    border-bottom: 4px solid transparent
+
+
+.loading-flip
+  width: $bubble-size *2
+  height: $bubble-size *2
+  background:  #2267A8
+  margin: 0 auto
+  animation: flip 8s infinite
+
+@keyframes bubble
+  0%, 100%
+    transform: scale(0)
+  50%
+    transform: scale(1)
+
+@keyframes spoke
+  0%
+    opacity: 1
+  100%
+    opacity: 0.2
+
+@keyframes pulse
+  0%, 75%
+    transform: scale(1, 1)
+  25%
+    transform: scale(1, 3)
+
+@keyframes slide
+  0%, 100%
+    left: 0
+  50%
+    left: 100%
+
+@keyframes spin
+  100%
+    transform: rotate(360deg)
+    
+@keyframes flip
+  0%
+    transform: rotateX(0) rotateY(0)
+  20%, 25%
+    transform: rotateX(0) rotateY(720deg)
+  45%, 50%
+    transform: rotateX(720deg) rotateY(720deg)
+  70%, 75%
+    transform: rotateX(720deg) rotateY(0)
+  95%, 100%
+    transform: rotateX(0) rotateY(0)

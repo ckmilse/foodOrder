@@ -1,0 +1,33 @@
+{
+    "code": 0,
+    "msg": "select success",
+
+    "data": {
+        "list_data": [{
+            "project_id": 123,
+            "project_name": "radar",
+            "code_from": "gitlab",
+            "code_address": "worker",
+            "code_branch": "",
+            "deploy_environment": "staging",
+            "compile_environment": "maven-jdk1.8",
+            "create_time": "1493970194",
+            "update_time": "1493970194",
+            "last_compile_time": "1493970194",
+            "role": "master"
+        },
+        {
+            "project_id": 1234,
+            "project_name": "radar-z",
+            "code_from": "gitlab",
+            "code_address": "",
+            "code_branch": "",
+            "deploy_environment": "staging",
+            "compile_environment": "maven-jdk1.8",
+            "create_time": "1493970194",
+            "update_time": "1493970194",
+            "last_compile_time": "1493970194",
+            "role": "master"
+        }]
+    }
+}

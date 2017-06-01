@@ -1,0 +1,15 @@
+CACHE MANIFEST
+#version:<%Date%>
+
+CACHE:
+#/scripts/bundle.js
+#/core/core.css
+#/styles/main.css
+#/views/*/*.html
+#/images/*/*.png
+index.html
+#--replace---startscript--
+
+#--endscript--
+NETWORK:
+*

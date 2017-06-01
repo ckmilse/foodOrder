@@ -1,0 +1,21 @@
+{
+    "result": "ok",
+    "code": 0,
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "abc",
+                "cn_name": "测试",
+                "type": 1
+            },
+            {
+                "id": 2,
+                "name": "abcd",
+                "cn_name": "测试2",
+                "type": 2
+            }
+        ]
+    },
+    "description": "成功"
+}

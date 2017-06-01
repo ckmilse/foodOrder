@@ -1,0 +1,99 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        流程定义
+        <p>
+            定义流水线。集成测试、单元测试，自动部署等都可以使用流水线来自动处理。
+        </p>
+    </div>
+    <div class="panel-body">
+        <div class="global-env empty ng-scope">
+            <span>进行流水线执行环境的全局设置，可以设置全局环境变量和默认基础镜像。</span>
+            <button class="dao-btn minimal-btn" ng-click="ctrl.editGlobalEnv()" tabindex="0">
+                 <svg class="icon"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_plus"></use>
+                 </svg>
+                 <span class="text">
+                     全局设置</span>
+                 </button>
+        </div>
+
+        <div class="stage-container">
+            <div class="start-item" dao-tooltip="当代码有新 Commit 或 Tag 时会触发这条流水线执行" tooltip-append-to-body="true">
+                <svg class="icon">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_github" ng-href="#icon_github">
+                    </use>
+                </svg>
+            </div>
+
+            <div class="arrow-item stage-plus ng-scope" ng-repeat-start="stage in ctrl.flow.parsed_yaml" ng-click="ctrl.addStage($index)" role="button" tabindex="0">
+                <svg class="arrow">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_arrow-right">
+                    </use>
+                </svg>
+                <!-- <svg class="plus">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_plus-circled"></use>
+                    </svg> -->
+            </div>
+            <div class="stage-item ng-scope" ng-repeat-end="">
+                <h4 class="stage-title">
+                    <div class="ng-binding">测试阶段</div><div class="dao-btn-group icon-btn dao-dropdown" dao-dropdown="" dropdown-append-to-body="true"><svg class="icon pull-left" dao-dropdown-toggle="" dropdown-append-to-body="true" aria-haspopup="true" aria-expanded="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_caret-down"></use></svg></div></h4>
+
+                <div class="stage-task ng-scope" ng-repeat="task in stage.tasks">
+                    <div class="stage-task-content">
+                        <div class="clearfix">
+                            <h5 class="pull-left ellipsis job-name ng-binding" ng-click="ctrl.editTask(task, stage)" dao-tooltip="" ellipsis-tooltip="" role="button" tabindex="0">默认测试任务</h5>
+
+                            <div class="dao-btn-group pull-right icon-btn dao-dropdown" dao-dropdown="" dropdown-append-to-body="true"><svg class="icon pull-left" dao-dropdown-toggle="" dropdown-append-to-body="true" aria-haspopup="true" aria-expanded="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_caret-down"></use></svg></div>
+                        </div>
+                        <div class="job-type ng-binding">测试任务</div>
+
+                        <span class="stage-label ng-binding ng-scope" ng-if="task.label">develop</span>
+
+                    </div>
+                </div>
+                <!-- end ngRepeat: task in stage.tasks -->
+                <div class="add-one"><span class="text-container" ng-click="ctrl.addTask(stage)" role="button" tabindex="0">
+                    <svg class="icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_plus"></use>
+                    </svg>
+                    <span class="text">添加任务</span></span>
+                </div>
+            </div>
+            <div class="arrow-item stage-plus ng-scope" ng-repeat-start="stage in ctrl.flow.parsed_yaml" ng-click="ctrl.addStage($index)" role="button" tabindex="0">
+                <svg class="arrow">
+                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_arrow-right">
+                    </use>
+                </svg>
+                <!-- <svg class="plus">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_plus-circled"></use>
+                    </svg> -->
+            </div>
+            <div class="stage-item ng-scope" ng-repeat-end="">
+                <h4 class="stage-title">
+                    <div class="ng-binding">测试阶段</div><div class="dao-btn-group icon-btn dao-dropdown" dao-dropdown="" dropdown-append-to-body="true"><svg class="icon pull-left" dao-dropdown-toggle="" dropdown-append-to-body="true" aria-haspopup="true" aria-expanded="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_caret-down"></use></svg></div></h4>
+
+                <div class="stage-task ng-scope" ng-repeat="task in stage.tasks">
+                    <div class="stage-task-content">
+                        <div class="clearfix">
+                            <h5 class="pull-left ellipsis job-name ng-binding" ng-click="ctrl.editTask(task, stage)" dao-tooltip="" ellipsis-tooltip="" role="button" tabindex="0">默认测试任务</h5>
+
+                            <div class="dao-btn-group pull-right icon-btn dao-dropdown" dao-dropdown="" dropdown-append-to-body="true"><svg class="icon pull-left" dao-dropdown-toggle="" dropdown-append-to-body="true" aria-haspopup="true" aria-expanded="false"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_caret-down"></use></svg></div>
+                        </div>
+                        <div class="job-type ng-binding">构建任务</div>
+
+                        <span class="stage-label ng-binding ng-scope" ng-if="task.label">develop</span>
+
+                    </div>
+                </div>
+                <!-- end ngRepeat: task in stage.tasks -->
+                <div class="add-one"><span class="text-container" ng-click="ctrl.addTask(stage)" role="button" tabindex="0">
+                    <svg class="icon">
+                        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon_plus"></use>
+                    </svg>
+                    <span class="text">添加任务</span></span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

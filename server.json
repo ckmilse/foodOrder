@@ -1,0 +1,42 @@
+{
+    "firstTestApi": {
+        "serve": "ccccc.json",
+        "development": "ccccc.json"
+    },
+    "getUserApi": {
+        "description": "获取机房列表",
+        "serve": "user.json",
+        "development": "/api/user",
+        "production": "/api/user"
+    },
+    "setUserLogoutApi": {
+        "description": "用户登出",
+        "serve": "setUserLogout.json",
+        "development": "/api/user/logout",
+        "production": "/api/user/logout "
+    },
+    "productListApi": {
+        "description": "获取当前产品线",
+        "serve": "productList.json",
+        "development": "/api/xtrace/service/productList",
+        "production": "/api/xtrace/service/productList"
+    },
+    "productDetailApi": {
+        "description": "获取某产品详情",
+        "serve": "productDetail.json",
+        "development": "/api/xtrace/service/product",
+        "production": "/api/xtrace/service/product"
+    },
+    "proTraceListApi": {
+        "description": "esList",
+        "serve": "esList.json",
+        "development": "/api/xtrace/service/query",
+        "production": "/api/xtrace/service/query"
+    },
+    "proTraceDetailApi": {
+        "description": "esList",
+        "serve": "traceDetail.json",
+        "development": "/api/xtrace/service/details",
+        "production": "/api/xtrace/service/details"
+    }
+}

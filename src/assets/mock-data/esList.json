@@ -1,0 +1,35 @@
+{
+    "result": "ok",
+    "code": 0,
+    "data": {
+        "list": [{
+                "traceId": "0a26a2b20a62000015c0ba6ee1400100",
+                "product": "abc",
+                "depth": 7,
+                "count": 4,
+                "startTime": 1494396597000000,
+                "moduleSet": "Gallery mysq",
+                "uri": "/api/abc",
+                "status": 200,
+                "duration": 200000,
+                "type": "CLIENT"
+            },
+            {
+                "traceId": "0a26a2b20a62000015c0ba6ee14001d00",
+                "product": "abc",
+                "depth": 6,
+                "count": 4,
+                "startTime": 1494396597000000,
+                "moduleSet": "Gallery mysq",
+                "uri": "/api/abc",
+                "status": 200,
+                "duration": 200000,
+                "type": "CLIENT"
+            }
+        ],
+        "total": 300,
+        "page": 1,
+        "size": 30
+    },
+    "description": "成功"
+}

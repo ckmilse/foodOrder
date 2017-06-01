@@ -1,0 +1,22 @@
+<div class="setting-pane ng-scope">
+    <div class="title-block">
+        <h2 class="title">设置</h2></div>
+    <div class="setting-block">
+        <div class="setting-title">流程定义</div>
+        <div class="setting-content">
+            <div class="dao-radio" ng-class="::{'disabled': ctrl.buildflow.daohub_src_provider==='git-url'}"><label><input type="radio" name="yaml" ng-value="false" ng-model="ctrl.buildflow.enable_cloud_yaml" ng-change="ctrl.changeYamlFrom()" ng-disabled="::ctrl.buildflow.daohub_src_provider === 'git-url'" class="ng-pristine ng-untouched ng-valid" value="false" aria-disabled="false" aria-checked="false" tabindex="-1" aria-invalid="false"> 代码中的 daocloud.yml</label></div>
+            <div
+                class="dao-radio"><label><input type="radio" name="yaml" ng-value="true" ng-model="ctrl.buildflow.enable_cloud_yaml" ng-change="ctrl.changeYamlFrom()" class="ng-pristine ng-untouched ng-valid" value="true" aria-checked="true" tabindex="0" aria-invalid="false"> 云端流程定义</label></div>
+            <p
+                class="text-muted top-margin-10">支持两种方式定义镜像构建／持续集成的流程：一是通过代码根目录的 daocloud.yml 文件定义； 二是在云端的流程定义页中配置。</p>
+        </div>
+    </div>
+    
+    <!-- ngIf: org.urlPrefix && ctrl.buildflow.daohub_src_provider !== 'git-url' -->
+    <!-- ngIf: org.urlPrefix -->
+    <div class="setting-block">
+        <div class="setting-title">删除项目</div>
+        <div class="setting-content">
+            <p class="text-dark-muted bottom-margin-15">请注意，删除项目将清除项目的所有历史数据以及相关的镜像，且该操作不能被恢复，您确定要删除吗?</p><button class="dao-btn red bottom-margin-5" ng-click="ctrl.deleteBuildflow()" tabindex="0">删除项目</button></div>
+    </div>
+</div>

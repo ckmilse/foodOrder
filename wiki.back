@@ -1,0 +1,193 @@
+机房（集群）列表获取：
+1. http://localhost:8080/clusters
+{
+"result": "ok",
+"code": 0,
+"data": ["local_test", "chenke"],
+"description": "成功"
+}
+
+
+2. http://localhost:8080/clusters?cluster=*
+{
+"result": "ok",
+"code": 0,
+"data": ["local_test", "chenke"],
+"description": "成功"
+}
+
+3. http://localhost:8080/clusters?cluster=ke
+{
+"result": "ok",
+"code": 0,
+"data": ["chenke"],
+"description": "成功"
+}
+4. http://localhost:8080/clusters?cluster=chenke
+{
+"result": "ok",
+"code": 0,
+"data": ["chenke"],
+"description": "成功"
+}
+
+服务列表获取：
+1. http://localhost:8080/services
+{
+"result": "ok",
+"code": 0,
+"data":[
+    {
+        cluster: "local_test",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [ ],
+        configs: { }
+    },
+    {
+        cluster: "chenke",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [ ],
+        configs: { }
+    }
+],
+"description": "成功"
+}
+
+
+2. http://localhost:8080/services?cluster=chenke
+
+[
+    {
+        cluster: "chenke",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [ ],
+        configs: { }
+    }
+]
+
+3. http://localhost:8080/services?cluster=chenke&service=com.xiaomi.swift.helloworld.server.EchoServer
+
+[
+    {
+        cluster: "chenke",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [ ],
+        configs: { }
+    }
+]
+
+4. http://localhost:8080/services?cluster=chenke&&hasServers=true
+
+[
+    {
+        cluster: "chenke",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [
+            {
+            server.service.level: "10",
+            implementation: "com.xiaomi.swift.helloworld.server.EchoServerImpl",
+            version: "1",
+            port: "12346",
+            thrift.runner.zookeeper.config: "/services/com.xiaomi.swift.helloworld.server.EchoServer/Configuration/Default",
+            host: "172.20.0.1",
+            weight: "10"
+            }
+        ],
+        configs: { }
+    }
+]
+
+5. http://localhost:8080/services?cluster=chenke&&hasServers=true&&hasConfigs=true
+
+[
+    {
+        cluster: "chenke",
+        name: "com.xiaomi.swift.helloworld.server.EchoServer",
+        servers: [
+            {
+            server.service.level: "10",
+            implementation: "com.xiaomi.swift.helloworld.server.EchoServerImpl",
+            version: "1",
+            port: "12346",
+            thrift.runner.zookeeper.config: "/services/com.xiaomi.swift.helloworld.server.EchoServer/Configuration/Default",
+            host: "172.20.0.1",
+            weight: "10"
+            }
+        ],
+        configs: {
+            routing: {
+                partition.algorithm: "MOD",
+                partition.servergroups: "group1,group2,group3",
+                partition.servergroups.algorithm: "FIRST"
+            },
+            custom: {
+                abc: "123"
+            },
+            basic: {
+                threadpoolsize: "9",
+                port: "12345"
+            }
+        }
+    }
+]
+
+Server 表单提交 [POST请求]
+1. http://localhost:8080/services/server
+   参数：
+{
+"cluster": "local_test",
+"service": "com.xiaomi.swift.helloworld.server.EchoServer",
+"ip": "172.20.0.1:12346",
+"serverConfig": {
+"weight": 55,
+"version": "1"
+}
+}
+        cluster=chenke (全匹配，不可模糊)
+        service=com.xiaomi.swift.helloworld.server.EchoServer (全匹配，不可模糊)
+        ip=172.20.0.1:12346 (全匹配，不可模糊)
+        serverConfig=weight=9;port=12346;version=2 (可修改数据的表单)
+
+
+{
+  "result": "ok",
+  "code": 0,
+  "data": null,
+  "description": "成功"
+}
+
+
+Config 表单提交 [POST请求]
+1. http://localhost:8080/services/config
+   参数：
+        cluster = chenke (全匹配，不可模糊)
+        service = com.xiaomi.swift.helloworld.server.EchoServer (全匹配，不可模糊)
+        basic = port=12347;threadpoolsize=12 (基本配置)
+        routing = partition.algorithm=RANGE;partition.servergroups.algorithm=RANDOM (分组与负载)
+        custom = def=456;abc=122;eee=111 （自定义）
+
+    提交数据为当前页面可修改数据+新增数据
+
+
+{
+  "result": "ok",
+  "code": 0,
+  "data": null,
+  "description": "成功"
+}
+
+
+Config 配置删除 [POST请求]
+1. http://localhost:8080/services/config/delete
+   参数：
+        cluster = chenke (全匹配，不可模糊)
+        service = com.xiaomi.swift.helloworld.server.EchoServer (全匹配，不可模糊)
+        module = basic | routing | custom (三选一)
+        deleteConfig = def=456 (只能是一个kv配置)
+
+{
+  "result": "ok",
+  "code": 0,
+  "data": null,
+  "description": "成功"
+}

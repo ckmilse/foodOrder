@@ -1,0 +1,26 @@
+class base {
+    $basedir = "$<path>"
+    $pkg_dir = "$<pkg_dir>"
+    $user = "$< user >"
+    $mod_ver = "$< version >"
+    $mod_name = "$< name >"
+    $run_dir="${basedir}"
+    #$to_email = "chenke1@xiaomi.com"
+}
+
+class production-sd inherits base{
+}
+
+class production-lg inherits base{
+}
+
+class c3 inherits base {
+}
+
+class staging inherits base{
+}
+
+class onebox inherits base{
+}
+
+class config inherits $<env> {}

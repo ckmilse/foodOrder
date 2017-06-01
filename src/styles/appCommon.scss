@@ -1,0 +1,125 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+// @import 'variables';
+//
+// nav {
+//   margin-top: 16px;
+//   background: red;
+// }
+//
+// nav a {
+//   background-color: $nav-button-color;
+//   color: white;
+//   padding: 8px 16px;
+//   margin: 8px;
+//   vertical-align: middle;
+//   line-height: 1.25;
+//   text-align: center;
+//   text-decoration: none;
+//   border-radius: 4px;
+// }
+.transparent {
+    // background: yellow;
+    .mat-dialog-container{
+        background: transparent!important;
+        box-shadow: inherit!important;
+    }
+}
+
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+.xm_boxLoading {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    // background: red;
+    &:before {
+        content: 'ccc';
+        width: 50px;
+        height: 5px;
+        background: #000;
+        opacity: 0.1;
+        position: absolute;
+        top: 59px;
+        left: 0;
+        border-radius: 50%;
+        animation: shadow 0.5s linear infinite;
+    }
+
+    &:after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        // background: #1A6844;
+        background: #f9f905;
+        animation: animate 0.5s linear infinite;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 3px;
+    }
+}
+@keyframes animate {
+    17% {
+        border-bottom-right-radius: 3px;
+    }
+
+    25% {
+        transform: translateY(9px) rotate(22.5deg);
+    }
+
+    50% {
+        transform: translateY(18px) scale(1, .9) rotate(45deg);
+        border-bottom-right-radius: 40px;
+    }
+
+    75% {
+        transform: translateY(9px) rotate(67.5deg);
+    }
+
+    100% {
+        transform: translateY(0) rotate(90deg);
+    }
+}
+@keyframes shadow {
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.2, 1);
+    }
+}
+
+// body,
+// html {
+//     background: white;
+//     overflow: hidden;
+//     height: 100%;
+// }
+
+
+.xm_cursor_pointer{
+    cursor:pointer;
+}
+
+.sweet-alert{
+    h2{
+        word-break: break-all;
+    }
+}

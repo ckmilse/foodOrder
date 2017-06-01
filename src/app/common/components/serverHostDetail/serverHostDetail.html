@@ -1,0 +1,128 @@
+<h3 md-dialog-title>机器详情</h3>
+
+<md-dialog-content>
+  <table class="table table-striped table-hover" *ngIf="ifDataReady">
+    <thead>
+      <tr>
+        <th>
+          参数中文名称
+        </th>
+        <th>
+          参数名称
+        </th>
+        <th>
+          值
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          机器ip
+        </td>
+        <td>
+          host
+        </td>
+        <td>
+          {{theServer.host}}
+
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          端口
+        </td>
+        <td>
+          port
+        </td>
+        <td>
+          {{theServer.port}}
+
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          权重
+        </td>
+        <td>
+          weight
+        </td>
+        <td>
+          {{theServer.weight}}
+
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          级别
+        </td>
+        <td>
+          server.service.level
+        </td>
+        <td>
+          <span [hidden]="ifEdit">{{theServer['server.service.level']}}</span>
+          <input [hidden]="!ifEdit" type="number" [(ngModel)]="theServer['server.service.level']" min="1" step="1" />
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          版本
+        </td>
+        <td>
+          version
+        </td>
+        <td>
+          <span [hidden]="ifEdit">{{theServer.version}}</span>
+          <input [hidden]="!ifEdit" [(ngModel)]="theServer.version" type="number" min="1" step="1" />
+        </td>
+
+      </tr>
+      <tr>
+        <td>
+          配置路径
+        </td>
+        <td>
+          thrift.runner.zookeeper.config
+        </td>
+        <td>
+          {{theServer['thrift.runner.zookeeper.config']}}
+
+        </td>
+
+      </tr>
+
+
+      <tr>
+        <td>
+          实现
+
+        </td>
+        <td>
+          implementation
+        </td>
+        <td>
+          {{theServer['implementation']}}
+
+        </td>
+
+      </tr>
+
+    </tbody>
+
+  </table>
+</md-dialog-content>
+<md-dialog-actions [attr.align]="actionsAlignment">
+  <!-- <button md-raised-button   class=" btn btn-info" md-dialog-close>Close</button> -->
+
+  <button   type="button" class="btn btn-default" (click)=" closeModal()" >关闭</button>
+  <button   type="button" class="btn btn-primary" [hidden]="ifEdit" (click)="editServer()">编辑</button>
+  <button   type="button" class="btn btn-primary" [hidden]="!ifEdit" (click)="submitServerChange()">提交更改</button>
+  <!-- <a md-button color="primary" href="https://en.wikipedia.org/wiki/Neptune" target="_blank">Read more on Wikipedia</a>
+
+  <button md-button color="secondary" (click)="showInStackedDialog()">
+         Show in Dialog</button> -->
+</md-dialog-actions>

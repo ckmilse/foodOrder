@@ -1,0 +1,20 @@
+CACHE MANIFEST
+#version:1496304597746
+
+CACHE:
+#/scripts/bundle.js
+#/core/core.css
+#/styles/main.css
+#/views/*/*.html
+#/images/*/*.png
+index.html
+polyfills.1ad2f3323ab59081de9e.bundle.js
+vendor.e43d3a019595cd01ae4c.bundle.js
+main.cf5040ee8bd9bb2b1379.bundle.js
+lib.ddbfa1c041dc532259e6.bundle.js
+main.e5350b70e0a0892da953d53d3ea911c2.css
+lib.1503ab87be7c2497f584c10c18ce9ac7.css
+
+#--endscript--
+NETWORK:
+*

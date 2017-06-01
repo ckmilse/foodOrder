@@ -1,0 +1,246 @@
+
+.dao-table-main {
+    overflow-x: auto;
+    width: 100%;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+.dao-table.slat {
+    width: 100%;
+}
+.dao-container .dao-table thead {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-color: #e4e7ed;
+    background-color: #f1f3f6;
+}
+.dao-table thead {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+.dao-table.slat th {
+    text-align: left;
+    font-size: 14px;
+    color: #9ba3af;
+    padding: 10px;
+    font-weight: 400;
+    white-space: nowrap;
+}
+.dao-table.slat th:first-child {
+    padding-left: 24px;
+}
+.dao-table.slat tbody {
+    background: #fff;
+    border: 1px solid #e4e7ed;
+}
+.dao-table.slat tbody tr:last-child {
+    border-bottom: none;
+}
+.dao-table.slat td {
+    white-space: nowrap;
+    word-break: break-all;
+    padding: 20px 10px;
+    vertical-align: middle;
+}
+.dao-table.slat .item-minor {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #9ba3af;
+    font-size: 13px;
+    margin-top: 4px;
+}
+.dao-table svg {
+    fill: currentcolor;
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+}
+.dao-table a, .dao-table span, .dao-table svg {
+    vertical-align: middle;
+}
+ .info-header {
+    height: 40px;
+    padding: 0 20px;
+    border-width: 1px 0;
+    border-style: solid;
+    border-color: #e4e7ed;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+svg.icon, svg.icon+.text {
+    display: inline-block;
+    vertical-align: middle;
+}
+.right_button{
+    float: right;
+}
+
+.stage-container {
+    overflow: auto;
+    padding: 20px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 0 auto;
+    -moz-flex: 1 0 auto;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.stage-container .arrow-item {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -moz-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-align-self: flex-start;
+    -moz-align-self: flex-start;
+    align-self: flex-start;
+    -ms-flex-item-align: start;
+}
+.stage-container .stage-item .stage-title {
+    font-size: 14px;
+    line-height: 26px;
+    margin: 0 0 9px;
+    color: #3d444f;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+}
+.stage-container .stage-item .stage-task {
+    margin-bottom: 8px;
+    border-radius: 1px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.2);
+}
+.stage-container .stage-item .stage-task .stage-task-content {
+    padding: 10px;
+}
+.stage-container .stage-item .stage-task .stage-task-content .job-type {
+    font-size: 12px;
+    line-height: 22px;
+    color: #9ba3af;
+}
+.stage-container .stage-item .stage-task .stage-task-content .line-height-12 {
+    line-height: 12px;
+}
+.stage-label {
+    font-size: 13px;
+    line-height: 16px;
+    display: inline-block;
+    height: 16px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0 8px;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #9ba3af;
+}
+.stage-container .stage-item .stage-task .stage-task-content .line-height-12+.stage-label {
+    margin-top: 15px;
+}
+.stage-container .stage-item .stage-task .stage-task-footer {
+    height: 26px;
+    padding: 0 10px;
+    border-top: 1px solid #e4e7ed;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+}
