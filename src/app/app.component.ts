@@ -22,13 +22,14 @@ import { AppState } from './app.service';
     ],
     template: `
     <div id="wrapper">
-        <app-navigation>
+         <app-navigation>
         </app-navigation>
+
         <main>
-            <div id="page-wrapper">
+
                 <router-outlet>
                 </router-outlet>
-            </div>
+        
         </main>
         <app-footer>
         </app-footer>

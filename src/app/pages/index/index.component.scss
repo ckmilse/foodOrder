@@ -1,3 +1,39 @@
 div{
     background: white;
 }
+.list-pro {
+    overflow: hidden;
+     padding-bottom: 60px;
+    margin-top: 0px;
+    padding-left: 0px;
+}
+
+// .num {
+//     position: absolute;
+//     width: 20px;
+//     height: 20px;
+//     border-radius: 50%;
+//     background: red;
+//     color: #fff;
+//     text-align: center;
+//     line-height: 20px;
+//     font-style: normal;
+//     top: -5px;
+//     right: -2px;
+// }
+
+a{
+    text-decoration: none;
+}
+.list-cart .d-stock .text_box {
+    display: block;
+    float: left;
+    border: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    text-align: center;
+}
+.list-cart .d-stock .decrease{
+    display: block;
+}

@@ -250,7 +250,7 @@ module.exports = function(options) {
      */
     devServer: {
       port: METADATA.port,
-      host: METADATA.host,
+      host: '0.0.0.0',
       historyApiFallback: true,
       // hot: true,
       // setup: function(req, res, next) {

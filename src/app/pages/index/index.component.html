@@ -1,31 +1,41 @@
-<header data-am-widget="header" class="am-header am-header-default sq-head  am-no-layout">
-    <div class="am-header-right am-header-nav">
-        <button type="button" class="am-btn am-btn-warning" id="doc-confirm-toggle" style="background: none; border: 0; font-size: 24px;">
-             <i class="am-header-icon am-icon-trash"></i>
-          </button>
-    </div>
-</header>
+
 <div class="content-list" id="outer">
     <div class="list-left" id="tab">
-        <li class="current"><a style="position: relative;">新品推荐<i class="num">8</i></a></li>
-        <li class=""><a>芝士奶盖系列</a></li>
-        <li class=""><a>精选奶茶</a></li>
-        <li class=""><a>部落奶盐</a></li>
-        <li class=""><a>正宗可可奶盖</a></li>
-        <li><a>清新果茶</a></li>
-        <li><a>招牌榴莲奶盖</a></li>
-        <li><a>部落奶盖系列</a></li>
-        <li><a>鲜榨果汁</a></li>
-        <li><a>创意特饮</a></li>
-        <li><a>纯吃茶</a></li>
-        <li><a>沙冰系列</a></li>
-        <li><a>热饮系列</a></li>
-        <li><a>小吃系列</a></li>
+        <li
+         *ngFor="let choice of choiceList"
+         [ngClass]="{'current': choice.ifCurrent}"
+         (click)="changeTab(choice)"
+        >
+            <a style="position: relative;">
+                {{choice.name}}
+                <!-- <i class="num">8</i> -->
+            </a>
+        </li>
+
     </div>
     <div class="list-right" id="content">
         <ul class="list-pro" style="display: block;">
-            <li>
-                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="./茶部落_files/1.png" class="list-pic"></a>
+            <li *ngFor="let order of listShow">
+                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html">
+                    <img src="{{order.image}}" class="list-pic"></a>
+                <div class="shop-list-mid">
+                    <div class="tit">
+                        <a >
+                        {{order.name}}
+                    </a>
+                    </div>
+                    <div class="am-gallery-desc">￥{{order.value}}/{{order.measurement}}</div>
+                </div>
+                <div class="list-cart">
+                    <div class="d-stock ">
+                        <a class="decrease"  (click)="changeCount(order, -1)">-</a>
+                        <input id="num" readonly="" class="text_box" name="" type="text" [value]="order.choiceCount">
+                        <a class="increase" (click)="changeCount(order, +1)">+</a>
+                    </div>
+                </div>
+            </li>
+            <!-- <li>
+                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="/assets/img/2.png" class="list-pic"></a>
                 <div class="shop-list-mid">
                     <div class="tit"><a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html">法国加力果12个装 进口新鲜水果 嘎啦苹果 包邮</a></div>
                     <div class="am-gallery-desc">￥52</div>
@@ -39,7 +49,7 @@
                 </div>
             </li>
             <li>
-                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="./茶部落_files/2.png" class="list-pic"></a>
+                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="/assets/img/1.png" class="list-pic"></a>
                 <div class="shop-list-mid">
                     <div class="tit"><a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html">法国加力果12个装 进口新鲜水果 嘎啦苹果 包邮</a></div>
                     <div class="am-gallery-desc">￥52</div>
@@ -53,7 +63,7 @@
                 </div>
             </li>
             <li>
-                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="./茶部落_files/1.png" class="list-pic"></a>
+                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="/assets/img//2.png" class="list-pic"></a>
                 <div class="shop-list-mid">
                     <div class="tit"><a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html">法国加力果12个装 进口新鲜水果 嘎啦苹果 包邮</a></div>
                     <div class="am-gallery-desc">￥52</div>
@@ -65,21 +75,8 @@
                         <a class="increase">+</a>
                     </div>
                 </div>
-            </li>
-            <li>
-                <a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html"><img src="./茶部落_files/2.png" class="list-pic"></a>
-                <div class="shop-list-mid">
-                    <div class="tit"><a href="http://www.sucaihuo.com/modals/18/1890/demo/detail.html">法国加力果12个装 进口新鲜水果 嘎啦苹果 包邮</a></div>
-                    <div class="am-gallery-desc">￥52</div>
-                </div>
-                <div class="list-cart">
-                    <div class="d-stock ">
-                        <a class="decrease">-</a>
-                        <input id="num" readonly="" class="text_box" name="" type="text" value="0">
-                        <a class="increase">+</a>
-                    </div>
-                </div>
-            </li>
+            </li> -->
+
         </ul>
     </div>
 </div>

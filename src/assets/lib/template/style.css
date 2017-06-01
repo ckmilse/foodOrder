@@ -36,11 +36,13 @@ ul{ padding: 0; margin: 0;}
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+    white-space:nowrap;
     overflow: hidden;
-    white-space:nowrap
+
+
     text-overflow: ellipsis;}
 .fix-bot{ border-top: 1px solid #ddd; position: fixed; bottom: 0; height: 4.5rem; width: 100%; background: #fff; }
-.fix-bot-cart{background: url(../images/shopcart.png) no-repeat; float: left; margin-left: 3%; margin-top: -12px; width: 5rem; height: 5rem; background-size: contain;}
+/*.fix-bot-cart{background: url(../images/shopcart.png) no-repeat; float: left; margin-left: 3%; margin-top: -12px; width: 5rem; height: 5rem; background-size: contain;}*/
 .fix-bot-cart i{ width: 20px; height: 20px; text-align: center; float: right; color: #fff; font-style: normal; line-height: 20px; border-radius: 50%; background: #ffc618; display: block;}
 .shop-list-mid { float: left; width: 65%; margin-left: 0.625rem;}
 .shop-list-mid p{ color: #9c9b9b;}

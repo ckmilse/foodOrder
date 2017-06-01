@@ -1,43 +1,11 @@
-<nav>
-    <div class="center">
-        <div class="float_left">
-            <div>
-                <span class="page_title">
-                    Zander 链路追踪
-                </span>
-                <span class="label_select">
-                    产品线
-                </span>
-                <select class="form-control" (change)="productChange()" [(ngModel)]="productId">
-                    <option *ngFor="let pro of proList" [value]="pro.id">
-                        {{pro.name}}
-                    </option>
-                </select>
-            </div>
-        </div>
-        <div class="float_right">
-            <ul>
-                <li (click)="changeNav(4)"  [ngClass]="{'active': navListFlag[4]}" >
-                    <span [routerLink]="['/userCenter']" [queryParams]="{debug: true}">个人中心</span>
+<header data-am-widget="header" class="am-header am-header-default sq-head  am-no-layout">
+    <a>
+        我的订单
+    </a>
+    <div class="am-header-right am-header-nav">
 
-                </li>
-                <li (click)="changeNav(3)" [ngClass]="{'active': navListFlag[3]}">
-                    <span [routerLink]="['/dataCharts']" [queryParams]="{debug: true}">数据报表</span>
-
-                </li>
-                <li (click)="changeNav(2)" [ngClass]="{'active': navListFlag[2]}">
-                    <span [routerLink]="['/pathAggregation']" [queryParams]="{debug: true}">路径聚合</span>
-
-                </li>
-                <li (click)="changeNav(1)" [ngClass]="{'active': navListFlag[1]}">
-                    <span [routerLink]="['/serviceMap']" [queryParams]="{debug: true}">架构全景</span>
-                </li>
-
-                <li  (click)="changeNav(0)" [ngClass]="{'active': navListFlag[0]}">
-                    <span [routerLink]="['/realTimeTracking']" [queryParams]="{debug: true}" >实时追踪</span>
-                </li>
-
-            </ul>
-        </div>
+        <button type="button" class="am-btn am-btn-warning" id="doc-confirm-toggle" style="background: none; border: 0; font-size: 24px;">
+             <i class="am-header-icon am-icon-trash"></i>
+          </button>
     </div>
-</nav>
+</header>

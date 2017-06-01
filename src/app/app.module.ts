@@ -33,9 +33,10 @@ import { AppState, InternalStateType } from './app.service';
 import {
     RealTimeTrackingComponent,
     TrackDetailComponent,
-    
-    IndexComponent,
+    // IndexComponent,
     NoContentComponent} from './pages';
+
+import { IndexComponent} from './pages/index/index.component.ts';
 
 import { MaterialModule } from '@angular/material';
 import {

@@ -29,7 +29,7 @@ console.log(apiConfig);
 const HMR = helpers.hasProcessFlag('hot');
 const AOT = helpers.hasNpmFlag('aot');
 const METADATA = {
-  title: 'xiaomi-Zander',
+  title: '一点通',
   baseUrl: '/',
   isDevServer: helpers.isWebpackDevServer()
 };
