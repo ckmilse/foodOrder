@@ -33,6 +33,8 @@ import { AppState, InternalStateType } from './app.service';
 import {
     RealTimeTrackingComponent,
     TrackDetailComponent,
+    
+    IndexComponent,
     NoContentComponent} from './pages';
 
 import { MaterialModule } from '@angular/material';
@@ -90,6 +92,7 @@ type StoreType = {
         DisabledDirective,
         TimeComponent,
         HideDirective,
+        IndexComponent,
         // XLargeDirective
     ],
     entryComponents: [loadingComponent],
